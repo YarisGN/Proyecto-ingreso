@@ -1,5 +1,5 @@
 <!-- menu -->
-<nav class="navbar navbar-expand-lg p-1 text-dark fixed-top bg-white ">
+<nav class="navbar nav p-1 text-dark fixed-top bg-white ">
     <div class="pt-1">
         <h4 class="navbar text-dark">Sena</h4>
     </div>
@@ -19,10 +19,13 @@
             <li><a class="dropdown-item" href="registros.php">Registros</a></li>
           </ul>
         </li>
+        <li> 
+          <form class="d-flex" role="search" method="POST">
+            <input class="btn btn-outline-dark" type="submit" value="Cerrar sesión" name="btncerrar" />
+          </form>
+        </li>
     </ul>
-    <form style= "margin-left: 72%" class="d-flex" role="search" method="POST">
-      <input class="btn btn-outline-dark" type="submit" value="Cerrar sesión" name="btncerrar" />
-    </form>
+  
 </nav>
 <br><br><br>
 <!-- fin menu -->
