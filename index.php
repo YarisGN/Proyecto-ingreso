@@ -32,7 +32,7 @@
                                 
                                 <input type="checkbox" onclick="Toggle()">
                                 <b>Mostrar contraseña</b>
-                                <a class="nav-link text-muted" href="olvidepass.php">Olvidé mi contraseña</a>
+                                <a class="nav-link text-muted" href="recuperar.php">Olvidé mi contraseña</a>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button type="submit" style="background: #669900;" class="btn text-white" name="btningresar">Ingresar</button>
                             </div>

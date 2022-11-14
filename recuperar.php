@@ -48,7 +48,7 @@ $paginaAnterior = $_SERVER["HTTP_REFERER"];
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Restablecer</button>
                 </div>
-            </form>    
+            </form> 
         </div>
     </div>
 </div>
