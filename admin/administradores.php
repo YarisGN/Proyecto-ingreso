@@ -223,7 +223,6 @@ if(isset($_POST['btncerrar'])){
                             } 
                             
                             echo utf8_encode($rol);?></td>
-                            <td class="text-center"><a class="text-success" href="contraseña.php?persona=<?php echo $registros['pass']; ?>"><i class="bi bi-pencil-square"></i></a></td>
                             <td class="text-center"><a onclick="return confirm('Estas seguro de eliminar a: <?php echo $registros['nombre']; ?>');" class="text-danger" href="../crud/eliminar.php?persona=<?php echo $registros['pass']; ?>"><i class="bi-trash-fill"></i></a></td>
                         </tr>
 
