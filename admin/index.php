@@ -41,18 +41,58 @@ if(isset($_POST['btncerrar'])){
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" media="screen" href="../css/style.css">
+
+    <style>
+        .sena-sede-tic{
+            opacity: 30%;
+            background-image: url(../img/sena-sede-tic.jpg);
+        }
+        hr{
+            color: royalblue;
+        }
+    </style>
 </head>
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f3f4f5" fill-opacity="1" d="M0,256L60,256C120,256,240,256,360,224C480,192,600,128,720,90.7C840,53,960,43,1080,53.3C1200,64,1320,96,1380,112L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
-    <br><br><br><br><br><br>
+    <div class="text-center">
+        <!-- <img width="35%" class="sena-sede-tic" src="../img/sena-sede-tic.jpg" alt=""> -->
 
-    <!-- bienvenida con el nombre de usuario que ingreso -->
-    <?php
-        echo"<h3 class='bien navbar-brand'>Welcome: $usuarioingresado</h3>";
-    ?>
-    <!-- fin bienvenida con el nombre de usuario que ingreso -->
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f3f4f5" fill-opacity="1" d="M0,256L60,256C120,256,240,256,360,224C480,192,600,128,720,90.7C840,53,960,43,1080,53.3C1200,64,1320,96,1380,112L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+            <!-- bienvenida con el nombre de usuario que ingreso -->
+            <?php
+                echo"<h2 class=''>Welcome: $usuarioingresado</h2>";
+            ?>
+            <!-- fin bienvenida con el nombre de usuario que ingreso -->
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="lg-6">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nulla fugiat quas odit blanditiis consequuntur omnis neque magnam officia aut illo officiis, a enim voluptatum eligendi obcaecati, quisquam non. Placeat?
+                </p>
+            </div>
+            <div class="lg-6">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nulla fugiat quas odit blanditiis consequuntur omnis neque magnam officia aut illo officiis, a enim voluptatum eligendi obcaecati, quisquam non. Placeat?
+                </p>
+            </div>
+        </div>
+    </div>
+<br><br><br><br><br><br><br><br><br><br>
+<hr>
+    <footer>
+        <div class="text-center">
+            <a class="p-1" href=""><img width="2%" src="../img/icono_face.png" alt="facebook"></a> 
+            <a class="p-1" href=""><img width="2%" src="../img/icono-twitter.png" alt="twitter"></a> 
+            <a class="p-1" href=""><img width="2%" src="../img/icono-instagram.png" alt="instagram"></a> 
+        </div>
+        <div class="nav justify-content-center">
+            <a class="nav-link p-2" href="https://github.com/YarisGN"><h6>@YarisGN</h6></a>
+            <a  class="nav-link p-2" href="https://github.com/Shein0425"><h6>@Shein0425</h6></a>
+        </div>
+    </footer>
+    
 
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
