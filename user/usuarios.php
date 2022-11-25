@@ -121,7 +121,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="">Objeto:</label>
-                                <input class="form-control" type="text" name="objeto" id="objeto">
+                                <input class="form-control" type="text" name="objeto" id="objeto" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -158,7 +158,6 @@
                             </div>
                         </div>
                     </div>
-    
                     <br> 
                 </form>
             </div>
@@ -177,7 +176,7 @@
                 <div class="accordion-body">
                     
                 <?php $consulta = "SELECT * FROM personas 
-                    LEFT JOIN detalles ON personas.id_persona = detalles.id_persona;";
+                    LEFT JOIN detalles ON personas.id_persona = detalles.id_persona WHERE rol = 1 or rol = 2;";
                     include ('../comunes/usuarios.php'); 
                 ?>
 

@@ -46,20 +46,20 @@ if(isset($_POST['btncerrar'])){
     <title>Historial</title>
     <link rel="shortcut icon" href="../img/logoSena.png" type="image/x-icon">
 
-    <!-- cdn icnonos-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- cdn icnonos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
 
 <!-- tabla de registros de todas las personas -->
 <div class="container-fluid">
-    <h1 class="text-center">Registros</h1>
+    <h1 class="text-center">Historial</h1>
     <br><br>
     <?php 
         $consulta = "SELECT *, personas.id_persona AS id FROM personas 
@@ -88,8 +88,6 @@ if(isset($_POST['btncerrar'])){
                             <th>Observacion</th>
                             <th>Entrada</th>
                             <th>Salida</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -124,8 +122,6 @@ if(isset($_POST['btncerrar'])){
                                 <td><?php echo utf8_encode($registros['observacion']);?></td>
                                 <td><?php echo utf8_encode($registros['entrada']);?></td>
                                 <td><?php echo utf8_encode($registros['salida']);?></td>
-                                <td><a class="text-success" href="../crud/editar.php?persona=<?php echo $registros['id']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                <td><a onclick="return confirm('Estas seguro de eliminar a: <?php echo $registros['nombre']; ?>');" class="text-danger" href="../crud/eliminar.php?persona=<?php echo $registros['id']; ?>"><i class="bi bi-trash"></i></a></td>
                             </tr>
                             <?php } ?>
                         </tbody>

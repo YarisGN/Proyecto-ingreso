@@ -30,7 +30,7 @@
         if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado'){
     ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Exitoso!,</strong> Se editaron los datos.
+        <strong>Exitoso!</strong> Se editaron los datos.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php 
@@ -43,7 +43,7 @@
         if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
     ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Exitoso!,</strong> Se eliminaron los datos.
+        <strong>Exitoso!</strong> Se eliminaron los datos.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <?php 
@@ -63,4 +63,5 @@
         }
     ?>     
     <!-- fin alerta de error -->
+    
 <!-- fin alerta --> 

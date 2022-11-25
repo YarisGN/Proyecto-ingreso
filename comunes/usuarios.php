@@ -1,4 +1,5 @@
-
+<!-- cdn icnonos-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <?php
     $query = mysqli_query($conexion, $consulta);
@@ -55,9 +56,10 @@
                         
                         echo utf8_encode($rol);?></td>
                         <td><?php echo utf8_encode($registros['objeto']);?></td>
-                        <td><?php echo utf8_encode($registros['observacion']);?></td>    
-                        <td><a href="" class="bi-check-lg pl-5"></a></td>      
-                        <td class="text-center"><a onclick="return confirm('Estas seguro de eliminar a: <?php echo $registros['nombre']; ?>');" class="text-danger" href="../crud/eliminar.php?persona=<?php echo $registros['id_persona']; ?>"><i class="bi-trash-fill"></i></a></td>           
+                        <td><?php echo utf8_encode($registros['observacion']);?></td>        
+                        <td name="fecha_actual"><a href="../crud/.php?persona=<?php echo $registros['id_persona']; ?>"><i class="bi-check-lg pl-5"></i></a></td>
+
+                        <td class="text-center"><a onclick="return confirm('Estas seguro de eliminar a: <?php echo $registros['nombre']; ?>');" class="text-danger" href="../crud/eliminari.php?persona=<?php echo $registros['id_persona']; ?>"><i class="bi-trash-fill"></i></a></td>           
                     </tr>
                     <?php } ?>
                     </tbody>

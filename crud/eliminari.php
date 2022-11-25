@@ -1,7 +1,7 @@
 
 <?php 
     if(!isset($_GET['persona'])){
-        header('Location: ../admin/registro.php?mensaje=error');
+        header('Location: ../user/usuarios.php?mensaje=error');
         exit();
     }
 
@@ -13,9 +13,9 @@
     $resultado = $sentencia->execute();
 
         if($resultado){ 
-            header('Location: ../admin/registro.php?mensaje=eliminado');
+            header('Location: ../user/usuarios.php?mensaje=eliminado');
         }else{
-            header('Location: ../admin/registro.php?mensaje=error');
+            header('Location: ../user/usuarios.php?mensaje=error');
             exit();
         }
 ?>

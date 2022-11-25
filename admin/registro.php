@@ -11,6 +11,7 @@
 session_start();
 if(isset($_SESSION['nombredelusuario'])){
     $usuarioingresado = $_SESSION['nombredelusuario'];
+    $rol = $_SESSION['rol'];
 }
 else{
     header('location: index.php');
@@ -45,7 +46,7 @@ if(isset($_POST['btncerrar'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
+    <title>Registros</title>
     <link rel="shortcut icon" href="../img/logoSena.png" type="image/x-icon">
 
     <!-- Custom styles for this template -->
@@ -60,7 +61,7 @@ if(isset($_POST['btncerrar'])){
 <body> 
 
 <!-- ingresar datos vigilante -->
-<div class="container-fluid">
+<div class="container">
     <div class="mt-4">
         <h1 class="text-center">Registro</h1>
         <div class="card">
@@ -86,12 +87,6 @@ if(isset($_POST['btncerrar'])){
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="">Documento:</label>
-                                <input class="form-control" type="number" name="documento" id="documento" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
                                 <label for="">Tipo Documento:</label>
                                 <select class="form-control" name="tipo_documento" id="tipo_documento" required>
                                     <option value="">Seleccione</option>
@@ -108,6 +103,12 @@ if(isset($_POST['btncerrar'])){
                                 </select>
                             </div>
                         </div> 
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="">Documento:</label>
+                                <input class="form-control" type="number" name="documento" id="documento" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
@@ -123,17 +124,15 @@ if(isset($_POST['btncerrar'])){
                             </div>
                         </div> 
                     </div>
-
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="">Rol:</label>
                                 <select class="form-control" name="rol" id="rol" required>
                                     <option value="">Seleccione</option>
-                                    
                                         <?php 
                                         $consulta_sub_item = "SELECT * FROM sub_item
-                                        WHERE id_item = 1;";
+                                        WHERE id_item = 1 and id_sub_item = 17 or id_sub_item = 18 ;";
                                         $query_sub_item = mysqli_query($conexion,$consulta_sub_item);
                                             while ($row = mysqli_fetch_array($query_sub_item)) {
                                                 echo "<option value=".$row['id_sub_item'].">".$row['descripcion']."</option>";
@@ -148,27 +147,24 @@ if(isset($_POST['btncerrar'])){
                                 <input class="form-control" type="password" name="pass" id="pass" pattern="[a-zA-Z0-9+*]{6,15}" title="Una contraseña válida debe estar compuesta por letras y/o números y tener una longitud entre 6 y 15 caracteres" required>
                                 <input type="checkbox" onclick="Toggle()">
                                 <b>Mostrar contraseña</b>
-                                
                             </div>
                         </div>
-                        
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <br>
-                                <button style="background: #669900;" class="btn text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Digite Usuario" type="submit">Enviar</button>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <br>
+                                    <button name="fecha_actual" style="background: #669900;" class="btn text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="Digite Usuario" type="submit">Enviar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <br> 
                 </form>
             </div>
         </div>
     </div>
     <!-- fin ingresar datos vigilante -->
-    
+
+    <br>
     <!-- tabla registros de vigilantes -->
     <h1 class="text-center">Registros</h1>
     <br><br>
@@ -189,11 +185,10 @@ if(isset($_POST['btncerrar'])){
                         <thead class="text-dark">
                         <tr role="row">
                             <th>#</th>
-                            <th>Documento</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
+                            <th>Documento</th>
                             <th>Rol</th>
-                            <th>Cambiar contraseña</th>
                             <th>Eliminar</th>
                         </tr>
                         </thead>
@@ -202,17 +197,11 @@ if(isset($_POST['btncerrar'])){
                         $cont = 0; while ($registros = mysqli_fetch_array($query)){ $cont++; ?>
                         <tr>
                             <td><?php echo $cont; ?></td>
-                            <td><?php echo $registros['documento'];?></td>
                             <td><?php echo utf8_encode($registros['nombre']);?></td>
                             <td><?php echo utf8_encode($registros['apellido']);?></td>
+                            <td><?php echo $registros['documento'];?></td>
                             <td><?php 
-                            if ($registros['rol'] == 1){
-                                $rol = "Aprendiz";
-                            }   
-                            else if ($registros['rol'] == 2){
-                                $rol = "Instructor";
-                            }   
-                            else if ($registros['rol'] == 17){
+                            if ($registros['rol'] == 17){
                                 $rol = "Administrador";
                             }   
                             else if ($registros['rol'] == 18){
@@ -223,8 +212,7 @@ if(isset($_POST['btncerrar'])){
                             } 
                             
                             echo utf8_encode($rol);?></td>
-                            <td class="text-center"><a class="text-success" href="contraseña.php?persona=<?php echo $registros['pass']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                            <td class="text-center"><a onclick="return confirm('Estas seguro de eliminar a: <?php echo $registros['nombre']; ?>');" class="text-danger" href="../crud/eliminar.php?persona=<?php echo $registros['pass']; ?>"><i class="bi-trash-fill"></i></a></td>
+                            <td class="text-center"><a onclick="return confirm('Estas seguro de eliminar a: <?php echo $registros['nombre']; ?>');" class="text-danger" href="../crud/eliminar.php?persona=<?php echo $registros['id_persona']; ?>"><i class="bi-trash-fill"></i></a></td>           
                         </tr>
 
                         
@@ -242,7 +230,20 @@ if(isset($_POST['btncerrar'])){
     ?>
     <!-- fin tabla registros de vigilantes -->
 </div>
-
+<!-- ver contraseña -->
+<script>
+    // Change the type of input to password or text
+    function Toggle() {
+        var temp = document.getElementById("pass");
+        if (temp.type === "password") {
+            temp.type = "text";
+        }
+        else {
+            temp.type = "password";
+        }
+    }
+</script>
+<!-- fin ver contraseña -->
 
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -263,21 +264,6 @@ if(isset($_POST['btncerrar'])){
 
 <!-- Page level custom scripts -->
 <script src="../js/demo/datatables-demo.js"></script>
-
-<!-- ver contraseña -->
-<script>
-    // Change the type of input to password or text
-    function Toggle() {
-        var temp = document.getElementById("pass");
-        if (temp.type === "password") {
-            temp.type = "text";
-        }
-        else {
-            temp.type = "password";
-        }
-    }
-</script>
-<!-- fin ver contraseña -->
 
 </body>
 </html>

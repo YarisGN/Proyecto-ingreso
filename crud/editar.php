@@ -70,12 +70,14 @@ $consulta = "SELECT *, personas.id_persona AS codigo FROM personas
                     }
     ?>
     <div class="container mt-5">
+       <!--  ir a pagina anterior y traer el nombre de la persona -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?php echo $paginaAnterior;?> ">Atr&aacute;s</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $nombre." ".$apellido; ?> </li>
             </ol>
         </nav>
+        <!--  ==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==  -->
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
@@ -105,7 +107,7 @@ $consulta = "SELECT *, personas.id_persona AS codigo FROM personas
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Correo: </label>
-                            <input type="text" class="form-control" name="correo" required 
+                            <input type="email" class="form-control" name="correo" required 
                             value="<?php echo $correo; ?>">
                         </div>
                         <div class="mb-3">
@@ -130,7 +132,7 @@ $consulta = "SELECT *, personas.id_persona AS codigo FROM personas
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Observacion: </label>
-                            <textarea type="text" class="form-control" name="observacion" required><?php echo $observacion; ?></textarea>
+                            <textarea type="text" class="form-control" name="observacion"><?php echo $observacion; ?></textarea>
                         </div>
                         <div class="d-grid">
                             <input type="hidden" name="id_persona" value="<?php echo $id ?>">

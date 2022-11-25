@@ -1,7 +1,7 @@
 <?php
     print_r($_POST);
     if(!isset($_POST['id_persona'])){
-        header('Location: ../admin/registros.php?mensaje=error');
+        header('Location: ../user/historial.php?mensaje=error');
     }
 
     include('conexion.php');
@@ -34,19 +34,10 @@
             'observacion' => $observacion
         ]
     );
-if($rol == "Administrador"){
     if($resultado){ 
-        header('Location: ../admin/registros.php?mensaje=editado');
+        header('Location: ../user/historial.php?mensaje=editado');
     }else{
-        header('Location: ../admin/registros.php?mensaje=error');
+        header('Location: ../user/historial.php?mensaje=error');
         exit();
     }
-}else{
-    if($resultado){ 
-        header('Location: ../user/registros.php?mensaje=editado');
-    }else{
-        header('Location: ../user/registros.php?mensaje=error');
-        exit();
-    }
-}
 ?>

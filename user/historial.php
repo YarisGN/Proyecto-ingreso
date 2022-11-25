@@ -43,6 +43,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial</title>
+    <link rel="shortcut icon" href="../img/logoSena.png" type="image/x-icon">
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -54,11 +55,11 @@
 </head>
 <body>
 <div class="container-fluid">
-    <h1 class="text-center">Registros</h1>
+    <h1 class="text-center">Historial</h1>
     <br><br>
     <?php 
         $consulta = "SELECT *, personas.id_persona AS id FROM personas 
-        LEFT JOIN detalles ON personas.id_persona = detalles.id_persona;";
+        LEFT JOIN detalles ON personas.id_persona = detalles.id_persona WHERE rol = 1 or rol = 2;";
     ?>
 
     <?php
