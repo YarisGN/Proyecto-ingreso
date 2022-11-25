@@ -73,18 +73,10 @@ if(isset($_POST['btncerrar'])){
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="">Nombre:</label>
-                                <input class="form-control" type="text" name="nombre" id="nombre" required>
+                                <label for="">Documento:</label>
+                                <input class="form-control" type="number" name="documento" id="documento" required>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="">Apellido:</label>
-                                <input class="form-control" type="text" name="apellido" id="apellido" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="">Tipo Documento:</label>
@@ -103,10 +95,18 @@ if(isset($_POST['btncerrar'])){
                                 </select>
                             </div>
                         </div> 
+                    </div>
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="">Documento:</label>
-                                <input class="form-control" type="number" name="documento" id="documento" required>
+                                <label for="">Nombre:</label>
+                                <input class="form-control" type="text" name="nombre" id="nombre" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="">Apellido:</label>
+                                <input class="form-control" type="text" name="apellido" id="apellido" required>
                             </div>
                         </div>
                     </div>
@@ -185,9 +185,9 @@ if(isset($_POST['btncerrar'])){
                         <thead class="text-dark">
                         <tr role="row">
                             <th>#</th>
+                            <th>Documento</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th>Documento</th>
                             <th>Rol</th>
                             <th>Eliminar</th>
                         </tr>
@@ -197,9 +197,9 @@ if(isset($_POST['btncerrar'])){
                         $cont = 0; while ($registros = mysqli_fetch_array($query)){ $cont++; ?>
                         <tr>
                             <td><?php echo $cont; ?></td>
+                            <td><?php echo $registros['documento'];?></td>
                             <td><?php echo utf8_encode($registros['nombre']);?></td>
                             <td><?php echo utf8_encode($registros['apellido']);?></td>
-                            <td><?php echo $registros['documento'];?></td>
                             <td><?php 
                             if ($registros['rol'] == 17){
                                 $rol = "Administrador";

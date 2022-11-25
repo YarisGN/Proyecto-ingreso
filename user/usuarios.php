@@ -65,20 +65,6 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="">Nombre:</label>
-                                <input class="form-control" type="text" name="nombre" id="nombre" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="">Apellido:</label>
-                                <input class="form-control" type="text" name="apellido" id="apellido" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
                                 <label for="">Documento:</label>
                                 <input class="form-control" type="number" name="documento" id="documento" required>
                             </div>
@@ -100,7 +86,21 @@
                                     
                                 </select>
                             </div>
-                        </div> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="">Nombre:</label>
+                                <input class="form-control" type="text" name="nombre" id="nombre" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="">Apellido:</label>
+                                <input class="form-control" type="text" name="apellido" id="apellido" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
