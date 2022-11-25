@@ -51,10 +51,19 @@
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- cdn icnonos-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="container">
+        <!--Cargando-->
+        <div class="cargando row">       
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+            </div>
+        </div>
+        <!--Fin Cargando-->
         <h1 class="text-center">Registro Usuarios</h1>
         <div class="card">
             <div style="background: #669900;" class="card-header text-white">
@@ -66,7 +75,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="">Documento:</label>
-                                <input class="form-control" type="number" name="documento" id="documento" required>
+                                <input class="form-control" type="number" name="documento" id="documento" required onblur="buscar_datos();">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -184,8 +193,7 @@
             </div>
         </div>
     </div>
-    
-    
+
 
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -208,3 +216,100 @@
 <script src="../js/demo/datatables-demo.js"></script>
 </body>
 </html>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $('.cargando').hide();
+      });  
+
+  function buscar_datos()
+  {
+    doc = $("#documento").documento();
+    
+    
+    var parametros = 
+    {
+      "buscar": "1",
+      "documento" : documento
+    };
+    $.ajax(
+    {
+      data:  parametros,
+      dataType: 'json',
+      url:   '../codigos_php.php',
+      type:  'post',
+      beforeSend: function() 
+      {
+        $('.formulario').hide();
+        $('.cargando').show();
+        
+      }, 
+      error: function()
+      {alert("Error");},
+      complete: function() 
+      {
+        $('.formulario').show();
+        $('.cargando').hide();
+       
+      },
+      success:  function (valores) 
+      {
+        if(valores.existe=="1") //Aqui usamos la variable que NO use en el vídeo
+        {
+          $("#nombre").val(valores.nombre);
+          $("#apellido").val(valores.apellido);
+          $("#telefono").val(valores.telefono);
+        }
+        else
+        {
+          alert("El propietario no existe, ¡Crealo!")
+        }
+
+      }
+    }) 
+  }
+
+  function limpiar()
+  {
+    $("#documento").val("");
+    $("#nombre").val("");
+    $("#apellido").val("");
+    $("#telefono").val("");
+  }
+
+  function guardar()
+  {
+    var parametros = 
+    {
+      "guardar": "1",
+      "documento" : $("#documento").val(),
+      "nombre" : $("#nombre").val(),
+      "apellido" : $("#apellido").val(),
+      "telefono" : $("#telefono").val()
+    };
+    $.ajax(
+    {
+      data:  parametros,
+      url:   '../comunes/codigos_php.php',
+      type:  'post',
+      beforeSend: function() 
+      {
+        $('.formulario').hide();
+        $('.cargando').show();
+        
+      }, 
+      error: function()
+      {alert("Error");},
+      complete: function() 
+      {
+        $('.formulario').show();
+        $('.cargando').hide();
+       
+      },
+      success:  function (mensaje) 
+      {$('.resultados').html(mensaje);}
+    }) 
+    limpiar();
+  }
+</script>
