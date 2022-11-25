@@ -67,12 +67,12 @@
             ?>
             <!-- fin bienvenida con el nombre de usuario que ingreso -->
     </div><span id="input"></span>
-<script>
+<!-- <script>
 var today = new Date();
 var fecha = today.toLocaleDateString();
 var hora = today.toLocaleTimeString();
 document.getElementById('input').innerHTML = fecha+"<br>"+hora; ;
-</script>
+</script> -->
 <hr>
     <footer>
         <div class="text-center">
