@@ -11,9 +11,10 @@
 		  $resultados = mysqli_query($conexion,"SELECT * FROM $tabla_db1 WHERE documento = '$documento'");
 		  while($consulta = mysqli_fetch_array($resultados))
 		  {
-		  	$valores['existe'] = "1"; //Esta variable no la usamos en el vídeo (se me olvido, lo siento xD). Aqui la uso en la linea 97 de registro.php
+		  	$valores['existe'] = "1"; 
 		  	$valores['nombre'] = $consulta['nombre'];
 		  	$valores['apellido'] = $consulta['apellido'];
+			$valores['correo'] = $consulta['correo'];
 		  	$valores['telefono'] = $consulta['telefono'];		    
 		  }
 		  sleep(1);
@@ -26,6 +27,7 @@
     	$documento = $_POST['documento'];
     	$nombre = $_POST['nombre'];
     	$apellido = $_POST['apellido'];
+		$correo = $_POST['correo'];
     	$telefono = $_POST['telefono'];
     	$existe = "0";
 
@@ -42,9 +44,10 @@
 		  	  $_UPDATE_SQL="UPDATE $tabla_db1 Set 
 				  nombre='$nombre', 
 				  apellido='$apellido', 
+				  correo='$correo', 
 				  telefono='$telefono' 
 				  
-				  WHERE doc='$doc'"; 
+				  WHERE documento='$documento'"; 
 				  mysqli_query($conexion,$_UPDATE_SQL); 
 				  echo "<b>Dato Actualizado</b>";
 		  }
@@ -52,9 +55,9 @@
 		  {
 		  	//crear uno nuevo
 		  	mysqli_query($conexion, "INSERT INTO $tabla_db1 
-			  (documento,nombre,apellido,telefono) 
+			  (documento,nombre,apellido,correo,telefono) 
 			    values 
-			  ('$documento','$nombre','$apellido','$telefono')");
+			  ('$documento','$nombre','$apellido','$correo','$telefono')");
 			  echo "Propietario Agregado";
 		  }
 

@@ -225,7 +225,7 @@
 
   function buscar_datos()
   {
-    doc = $("#documento").documento();
+    documento = $("#documento").documento();
     
     
     var parametros = 
@@ -259,6 +259,7 @@
         {
           $("#nombre").val(valores.nombre);
           $("#apellido").val(valores.apellido);
+          $("#correo").val(valores.correo);
           $("#telefono").val(valores.telefono);
         }
         else
@@ -275,6 +276,7 @@
     $("#documento").val("");
     $("#nombre").val("");
     $("#apellido").val("");
+    $("#correo").val("");
     $("#telefono").val("");
   }
 
@@ -286,7 +288,8 @@
       "documento" : $("#documento").val(),
       "nombre" : $("#nombre").val(),
       "apellido" : $("#apellido").val(),
-      "telefono" : $("#telefono").val()
+      "correo" : $("#correo").val(),
+      "telefono" : $("#telefono").val(),
     };
     $.ajax(
     {
