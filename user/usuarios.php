@@ -231,7 +231,7 @@
       }, 
       error: function()
       {
-        alert("eror")
+        alert("Error, no se ha podido autorellenar")
       },
       complete: function() 
       {
