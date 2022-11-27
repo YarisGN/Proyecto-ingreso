@@ -1,12 +1,12 @@
 <?php 
 	// Parametros a configurar para la conexion de la base de datos 
 	$host = "localhost";    // sera el valor de nuestra BD 
-	$basededatos = "persona";    // sera el valor de nuestra BD 
+	$basededatos = "adso1";    // sera el valor de nuestra BD 
 	$usuariodb = "root";    // sera el valor de nuestra BD 
 	$clavedb = "";    // sera el valor de nuestra BD 
 
 	//Lista de Tablas
-	$tabla_db1 = "persona"; 	   // tabla de usuarios
+	$tabla_db1 = "personas"; 	   // tabla de usuarios
 	
 
 	//error_reporting(0); //No me muestra errores
