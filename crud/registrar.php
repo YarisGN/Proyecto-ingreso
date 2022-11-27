@@ -1,6 +1,6 @@
 <?php
     //print_r($_POST);
-    if(empty($_POST["documento"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["telefono"]) || empty($_POST["correo"]) || empty($_POST["rol"])){
+    if(empty($_POST["doc"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["telefono"]) || empty($_POST["correo"]) || empty($_POST["rol"])){
         header('Location: ../admin/usuarios.php?mensaje=falta');
         exit();
     }
@@ -8,7 +8,7 @@
     include_once '../includes/conexion.php';
     include_once 'conexion.php';
     $tipo_documento = $_POST["tipo_documento"];
-    $documento = $_POST["documento"];
+    $documento = $_POST["doc"];
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $telefono = $_POST["telefono"];
