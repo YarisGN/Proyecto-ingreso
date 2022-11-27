@@ -25,6 +25,9 @@
             <a class="dropdown-item" href="usuarios.php">Ingresar Usuarios</a>
           </li>
           <li class="nav-item">
+            <a class="dropdown-item" href="salida.php">Registrar Salida</a>
+          </li>
+          <li class="nav-item">
             <a class="dropdown-item" href="historial.php">Historial de registros</a>
           </li>
           <li class="nav-item">

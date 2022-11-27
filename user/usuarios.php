@@ -55,15 +55,6 @@
 </head>
 <body>
     <div class="container">
-        <!--Cargando-->
-        <div class="cargando row">       
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Cargando...</span>
-                </div>
-            </div>
-        </div>
-        <!--Fin Cargando-->
         <h1 class="text-center">Registro Usuarios</h1>
         <div class="card">
             <div style="background: #669900;" class="card-header text-white">
