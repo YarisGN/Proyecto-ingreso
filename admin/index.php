@@ -57,26 +57,57 @@ if(isset($_POST['btncerrar'])){
         }
     </style>
 </head>
-<body>
+<body class="sena-sede-tic">
 
-    <hr class="dropdown-divider">
-    <div class="text-center sena-sede-tic">
-        <!-- <img width="35%" class="sena-sede-tic" src="../img/sena-sede-tic.jpg" alt=""> -->
-
-            <!-- bienvenida con el nombre de usuario que ingreso -->
-            <?php
-                echo"<h2 style='color: #000;'>Welcome: $usuarioingresado</h2>";
-            ?>
-            <!-- fin bienvenida con el nombre de usuario que ingreso -->
+    <div class="text-center">
+        <!-- bienvenida con el nombre de usuario que ingreso -->
+        <?php
+            echo"<h2 style='color: #000;'>Welcome: $usuarioingresado</h2>";
+        ?>
+        <!-- fin bienvenida con el nombre de usuario que ingreso -->
     </div>
+    <hr>
 
+    <!-- CARRUCEL -->
+    <div style="margin-left: 20%; margin-right: 20%;"> 
+        <div id="carouselExampleDark" class="carousel carousel-dark slide p-4" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="../img/carrucel01.jpg" style="opacity: 80%;" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="../img/carrucel02.jpg" style="opacity: 80%;" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/carrucel03.jpg" style="opacity: 80%;" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- FIN CARRUCEL -->
+
+    <hr>
     <footer>
-        <hr>
+        <!-- REDES SOCIALES -->
         <div class="text-center">
             <a class="p-1" href=""><img width="2%" src="../img/icono_face.png" alt="facebook"></a> 
             <a class="p-1" href=""><img width="2%" src="../img/icono-twitter.png" alt="twitter"></a> 
             <a class="p-1" href=""><img width="2%" src="../img/icono-instagram.png" alt="instagram"></a> 
         </div>
+        <!-- GITBUD DE LOS CREADORES -->
         <div class="nav justify-content-center">
             <a class="nav-link p-2" href="https://github.com/YarisGN" target="_blank"><h6>@YarisGN</h6></a>
             <a  class="nav-link p-2" href="https://github.com/Shein0425" target="_blank"><h6>@Shein0425</h6></a>
