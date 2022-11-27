@@ -66,7 +66,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="">Documento:</label>
-                                <input class="form-control" type="number" name="documento" id="documento" required onblur="buscar_datos();">
+                                <input class="form-control" type="number" name="doc" id="doc" required onblur="buscar_datos();">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -209,20 +209,15 @@
 </html>
 
 
-<script type="text/javascript">
-  $(document).ready(function(){
-        $('.cargando').hide();
-      });  
 
+<script type="text/javascript">
   function buscar_datos()
   {
-    documento = $("#documento").documento();
-    
-    
+    doc = $("#doc").val();
     var parametros = 
     {
       "buscar": "1",
-      "documento" : documento
+      "doc" : doc
     };
     $.ajax(
     {
@@ -232,78 +227,24 @@
       type:  'post',
       beforeSend: function() 
       {
-        $('.formulario').hide();
-        $('.cargando').show();
-        
+      
       }, 
       error: function()
-      {alert("Error");},
+      {
+        alert("eror")
+      },
       complete: function() 
       {
-        $('.formulario').show();
-        $('.cargando').hide();
-       
       },
       success:  function (valores) 
       {
-        if(valores.existe=="1") //Aqui usamos la variable que NO use en el vídeo
-        {
+          $("#tipo_documento").val(valores.tipo_documento);
           $("#nombre").val(valores.nombre);
           $("#apellido").val(valores.apellido);
           $("#correo").val(valores.correo);
           $("#telefono").val(valores.telefono);
-        }
-        else
-        {
-          alert("El propietario no existe, ¡Crealo!")
-        }
-
+          $("#rol").val(valores.rol);
       }
     }) 
-  }
-
-  function limpiar()
-  {
-    $("#documento").val("");
-    $("#nombre").val("");
-    $("#apellido").val("");
-    $("#correo").val("");
-    $("#telefono").val("");
-  }
-
-  function guardar()
-  {
-    var parametros = 
-    {
-      "guardar": "1",
-      "documento" : $("#documento").val(),
-      "nombre" : $("#nombre").val(),
-      "apellido" : $("#apellido").val(),
-      "correo" : $("#correo").val(),
-      "telefono" : $("#telefono").val(),
-    };
-    $.ajax(
-    {
-      data:  parametros,
-      url:   '../comunes/codigos_php.php',
-      type:  'post',
-      beforeSend: function() 
-      {
-        $('.formulario').hide();
-        $('.cargando').show();
-        
-      }, 
-      error: function()
-      {alert("Error");},
-      complete: function() 
-      {
-        $('.formulario').show();
-        $('.cargando').hide();
-       
-      },
-      success:  function (mensaje) 
-      {$('.resultados').html(mensaje);}
-    }) 
-    limpiar();
   }
 </script>
