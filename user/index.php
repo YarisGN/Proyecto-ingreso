@@ -57,8 +57,9 @@
     
 </head>
 <body>
-<div class="sena-sede-tic"></div>
-    <div class="text-center">
+    
+    <hr class="dropdown-divider">
+    <div class="text-center sena-sede-tic">
         <!-- <img width="35%" class="sena-sede-tic" src="../img/sena-sede-tic.jpg" alt=""> -->
 
             <!-- bienvenida con el nombre de usuario que ingreso -->

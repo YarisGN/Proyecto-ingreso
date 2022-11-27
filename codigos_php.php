@@ -1,5 +1,5 @@
 <?php
-	include("comunes/abrir_conexion.php");
+	include("comunes/conexion.php");
 	 
 	 	if(isset($_POST['buscar']))
     { 

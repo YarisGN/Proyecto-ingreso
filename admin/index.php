@@ -57,7 +57,7 @@ if(isset($_POST['btncerrar'])){
         }
     </style>
 </head>
-<body class="">
+<body>
 
     <hr class="dropdown-divider">
     <div class="text-center sena-sede-tic">

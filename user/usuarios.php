@@ -42,8 +42,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>Usuarios</title>
-    <link rel="shortcut icon" href="../img/logoSena.png" type="image/x-icon">
-
+    <link rel="shortcut icon" href="img/logoSena.png" type="image/x-icon">
+    
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
