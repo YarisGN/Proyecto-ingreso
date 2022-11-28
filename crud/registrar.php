@@ -1,7 +1,7 @@
 <?php
     //print_r($_POST);
     if(empty($_POST["doc"]) || empty($_POST["nombre"]) || empty($_POST["apellido"]) || empty($_POST["telefono"]) || empty($_POST["correo"]) || empty($_POST["rol"])){
-        header('Location: ../admin/usuarios.php?mensaje=falta');
+        header('Location: ../user/usuarios.php?mensaje=falta');
         exit();
     }
 
@@ -31,19 +31,10 @@
     $resultado = $sentencia2->execute([$id,$objeto,$observacion]);
 
 
-    if($rol == 17){
-        if($resultado){ 
-            header('Location: ../admin/usuarios.php?mensaje=editado');
-        }else{
-            header('Location: ../admin/usuarios.php?mensaje=error');
-            exit();
-        }
-    }else{
         if($resultado){ 
             header('Location: ../user/usuarios.php?mensaje=editado');
         }else{
             header('Location: ../user/usuarios.php?mensaje=error');
             exit();
         }
-    }
 ?>
